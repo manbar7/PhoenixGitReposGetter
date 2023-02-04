@@ -1,0 +1,81 @@
+
+
+<div class="login-header">
+    <div *ngIf="isUserAuthenticated()" style="color:blue;">
+        <h2>
+          YOU ARE LOGGED IN
+        </h2>
+      </div>
+      
+        <li *ngIf="!isUserAuthenticated()"><a routerLink="/login">Login</a></li>
+      <div *ngIf="isUserAuthenticated()" style="margin-bottom: 5px;"><button (click)="logOut()">Log out</button></div>
+</div>
+
+  
+  
+
+
+
+
+
+
+<div class="main">
+    <h1>Phoenix Git Repos API App</h1>
+
+    <h3>Search Repository in Git Hub</h3>
+    <input type="text" id="searchValue"  [(ngModel)]="searchValue" placeholder="search repo"/><br/>
+    <button (click)="Search($event)">Search</button><br/>
+    <button (click)="ClearSearch()">Clear Search</button>
+
+
+
+
+    <div class="results" *ngIf="!isLoading">
+       <div>
+        <div>
+            <div *ngFor="let result of searchResults" >
+                <div class="card">
+                    <div ><br/>
+                        <button mat-icon-button (click)=addToBookmarks(result) style="float: right;">
+                            <mat-icon [ngClass]="result.bookmarked ? 'bi bi-bookmark-check-fill' : 'bi bi-bookmark'">favorite</mat-icon>
+                        </button>
+                        <label style="font-weight: bold;">Name:{{result.name}}</label><br>
+                        <img style="height: 50px;" [src]='result.owner.avatar_url' >
+                       </div>  
+                    </div>
+                </div>
+               
+        </div>
+       </div>
+    </div>
+<div *ngIf="hasLoad && !isLoading">
+    <button style="background-color: greenyellow;" (click)="NextPage()">Next Page</button>
+    <div *ngIf="!isFirstPage">
+        <button  style="background-color: greenyellow;" (click)="PreviousPage()">Previous Page</button>
+    </div>
+   
+</div>
+    
+
+
+    <div *ngIf="isLoading">
+     <h3>searching... '{{searchValue}}'</h3>
+    </div>
+
+
+  <!-- Bookmarks  -->
+    <!-- <div ngIf="showBookmarks">
+        <div *ngFor="let bookmark of bookmarks" >
+            <div class="card">
+                <div ><br/>
+                 <div>
+                    <label style="font-weight: bold;">Name:{{bookmark}}</label><br>
+                    <img style="height: 50px;" [src]='bookmark.owner.avatar_url' >
+                   </div>  
+                </div>
+            </div>
+          
+        </div>
+  </div> -->
+
+  </div>
