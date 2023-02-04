@@ -18,6 +18,8 @@ you must enter your github authorization API key.
 
 
  CREDENTIALS
+ 
+ 
 Admin default credentials store
 "Authorization":"username": "password":
 
