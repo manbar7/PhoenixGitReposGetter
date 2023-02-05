@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    margin-top: 200px;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Courier New', monospace;
+
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+     width:25%;
+     margin-left: 37%;
+     
+     
+}
+
+.invalid{
+    color: red;
+    font-family: 'Courier New', monospace;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+   
+
+}
